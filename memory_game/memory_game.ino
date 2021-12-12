@@ -17,11 +17,12 @@ int wait = 0;
 int currentLevel = 1;
 int dlay = 500;
 int ledTime = 500;
-int n_levels = 6; // current number of levels; 
+int n_levels = 4; // current number of levels; 
 int n_levels_orig = n_levels; // fall back to orig on fail
 int pinAndTone = 0;
 int correct = 0;
-int speedFactor = 5;
+int speedFactor = 4;
+int speedFactorOrig = 5;
 int ledDelay = 200;
 
 void playTone (int tone, int duration){
@@ -148,7 +149,8 @@ void loop() {
     i = 0;
     gameOn=0;
     currentLevel=1;
-    n_levels - n_levels_orig;
+    n_levels = n_levels_orig;
+    speedFactor = speedFactorOrig;
     
     for (i=0; i < 4; i = i + 1){
       digitalWrite(i+7, HIGH);
@@ -183,7 +185,7 @@ void loop() {
     for (i=0; i<9; i=i+1){
       note = notes[i];
       digitalWrite(note+7, HIGH);
-      playTone(tones[note], tempo[i]);
+      playTone(tones[note], tempo[i]/4);
       digitalWrite(note+7, LOW);
       delay(brakes[i]);
     }
@@ -191,6 +193,5 @@ void loop() {
     currentLevel = 1;
     n_levels = n_levels + 2;
     speedFactor += 1;
-    
   }
 }
