@@ -22,7 +22,7 @@ int n_levels_orig = n_levels; // fall back to orig on fail
 int pinAndTone = 0;
 int correct = 0;
 int speedFactor = 4;
-int speedFactorOrig = 5;
+int speedFactorOrig = speedFactor;
 int ledDelay = 200;
 
 void playTone (int tone, int duration){
