@@ -1,5 +1,5 @@
 # creationcrate
-creation crate related arduino c code
+creation crate related arduino C code
 
 ## Directory for creation create stuff
 Contents:
